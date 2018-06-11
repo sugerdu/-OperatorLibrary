@@ -55,7 +55,7 @@ public class Main {
 		UD.creattable(conn);
 		datalist=GRD.getRootData(conf,conn, runID, property, startvalue, stopvalue);
 		System.out.println(datalist);//输出数据		
-		UD.adddata1(conf, datalist, property);
+		UD.adddata1(conn, datalist, property);
 		UD.adddata(conf, datalist, property);
 		System.out.println("是否加载协处理器(请输入yes or no)");
 		String temp0=sc.nextLine();

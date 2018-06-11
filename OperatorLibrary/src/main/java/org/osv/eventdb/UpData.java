@@ -8,11 +8,13 @@ import java.util.List;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
 
 public class UpData {
@@ -28,16 +30,16 @@ public class UpData {
 		HbaseAdmin.close();
 		System.out.println("建表成功");
 	}
-	public void adddata1(Configuration conf,ArrayList<Double> datalist,String property) throws IOException{
+	public void adddata1(Connection conn,ArrayList<Double> datalist,String property) throws IOException{
 		String tableName="Coprocessor_Table";
 		//添加数据
         //创建表连接    
-//        HTable table=new HTable(conf,tableName); 
+        Table table=conn.getTable(TableName.valueOf(tableName));
         //然后开始写入数据 
         List<Put> putlist=new ArrayList<Put>();
-//        table.put(putlist);
+        table.put(putlist);
         //关闭表连接    
-//        table.close(); 
+        table.close(); 
         System.out.println("测试成功");
 	}
 	public void adddata(Configuration conf,ArrayList<Double> datalist,String property) throws IOException {
