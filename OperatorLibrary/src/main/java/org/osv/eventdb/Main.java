@@ -24,7 +24,7 @@ public class Main {
 		conf.set("hbase.zookeeper.quorum", "127.0.0.1");
 		conf.set("hbase.zookeeper.property.clientPort", "2181");
 		conf.set("hbase.master", "192.168.0.178:61000");
-		String path = "hdfs://192.168.0.178:9000/user/Client-jar-with-dependencies.jar";
+		String path = "hdfs://192.168.0.178:9000/user/eventdb-1.0.0.jar";
 		//建立连接
 		Connection conn = ConnectionFactory.createConnection(conf);
 		// 输入runID
