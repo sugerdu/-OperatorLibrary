@@ -32,7 +32,7 @@ public class UpData {
 		String tableName="Coprocessor_Table";
 		//添加数据
         //创建表连接    
-        HTable table=new HTable(conf,tableName); 
+//        HTable table=new HTable(conf,tableName); 
         //然后开始写入数据 
         List<Put> putlist=new ArrayList<Put>();
 //        table.put(putlist);
