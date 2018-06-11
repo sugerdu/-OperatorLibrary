@@ -28,6 +28,18 @@ public class UpData {
 		HbaseAdmin.close();
 		System.out.println("建表成功");
 	}
+	public void adddata1(Configuration conf,ArrayList<Double> datalist,String property) throws IOException{
+		String tableName="Coprocessor_Table";
+		//添加数据
+        //创建表连接    
+        HTable table=new HTable(conf,tableName); 
+        //然后开始写入数据 
+        List<Put> putlist=new ArrayList<Put>();
+        table.put(putlist);
+        //关闭表连接    
+        table.close(); 
+        System.out.println("测试成功");
+	}
 	public void adddata(Configuration conf,ArrayList<Double> datalist,String property) throws IOException {
 		String tableName="Coprocessor_Table";
 		//添加数据
