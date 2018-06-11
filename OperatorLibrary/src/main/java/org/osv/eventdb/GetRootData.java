@@ -34,9 +34,8 @@ import net.sf.json.JSONObject;
 
 public class GetRootData {
 	
-	public ArrayList<Double> getRootData(Configuration conf,String runID,String property,String startvalue,String stopvalue) throws IOException{
+	public ArrayList<Double> getRootData(Configuration conf,Connection conn,String runID,String property,String startvalue,String stopvalue) throws IOException{
 		ArrayList<Double> datalist = new ArrayList<Double>();
-		Connection conn = ConnectionFactory.createConnection(conf);
 		Admin admin = conn.getAdmin();
 		//连接请求表（判断输入是否正确）
 		Scanner sc = new Scanner(System.in);
@@ -93,7 +92,9 @@ public class GetRootData {
 			}
 			content.add(new String(b));			
 		}
-		
+		scanner.close();
+		table.close();
+		admin.close();
 		//1、对从data文件中读出来的内容进行JSON解析，获得ROOT文件的位置和偏移量
 		//2、读取ROOT文件，获得data
 		for(int i=0;i<content.size();i++)

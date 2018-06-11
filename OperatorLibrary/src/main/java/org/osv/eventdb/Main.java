@@ -46,16 +46,22 @@ public class Main {
 		ArrayList<Double> datalist=new ArrayList<Double>();//定义存储结果的数据结构
 		GetRootData GRD=new GetRootData();//创建ReadRoot对象
 		UpData UD=new UpData();//创建UpData的对象
-		datalist=GRD.getRootData(conf, runID, property, startvalue, stopvalue);
-		UD.adddata(conf,conn, datalist, property);	
+		datalist=GRD.getRootData(conf,conn, runID, property, startvalue, stopvalue);
 		System.out.println(datalist);//输出数据
-//		System.out.println("是否建表(请输入yes or no)");
-//		String temp1=sc.nextLine();
-//		if(temp1.equals("no"))
-//		{
-//			return;
-//		}
-			
+		System.out.println("是否建表(请输入yes or no)");
+		String temp1=sc.nextLine();
+		if(temp1.equals("no"))
+		{
+			return;
+		}
+		UD.creattable(conn);
+		UD.adddata(conf, datalist, property);
+		System.out.println("是否加载协处理器(请输入yes or no)");
+		String temp0=sc.nextLine();
+		if(temp0.equals("no"))
+		{
+			return;
+		}
 		// 加载协处理器到表Coprocessor_Table
 		HBaseAdmin admin = (HBaseAdmin) conn.getAdmin();
 		System.out.println("正在加载协处理器……");
