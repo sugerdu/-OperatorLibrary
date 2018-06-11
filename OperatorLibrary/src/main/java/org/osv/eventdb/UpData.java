@@ -35,9 +35,9 @@ public class UpData {
         HTable table=new HTable(conf,tableName); 
         //然后开始写入数据 
         List<Put> putlist=new ArrayList<Put>();
-        table.put(putlist);
+//        table.put(putlist);
         //关闭表连接    
-        table.close(); 
+//        table.close(); 
         System.out.println("测试成功");
 	}
 	public void adddata(Configuration conf,ArrayList<Double> datalist,String property) throws IOException {
