@@ -48,14 +48,14 @@ public class UpData {
         //创建表连接    
 		Table table=conn.getTable(TableName.valueOf(tableName));
         //然后开始写入数据 
-        List<Put> putlist=new ArrayList<Put>();
+//      List<Put> putlist=new ArrayList<Put>();
         for(int i=0;i<datalist.size();i++)
         {
         	Put put=new Put(Bytes.toBytes("row"+i));  //建立行建的put对象
         	put.addColumn(Bytes.toBytes("data"), Bytes.toBytes(property), Bytes.toBytes(String.valueOf(datalist.get(i))));
-        	putlist.add(put);
+        	 table.put(put);
         }
-        table.put(putlist);
+       
         //关闭表连接    
         table.close(); 
         System.out.println("添加数据成功");
