@@ -42,11 +42,11 @@ public class UpData {
         table.close(); 
         System.out.println("测试成功");
 	}
-	public void adddata(Configuration conf,ArrayList<Double> datalist,String property) throws IOException {
+	public void adddata(Connection conn,ArrayList<Double> datalist,String property) throws IOException {
 		String tableName="Coprocessor_Table";
 		//添加数据
         //创建表连接    
-        HTable table=new HTable(conf,tableName); 
+		Table table=conn.getTable(TableName.valueOf(tableName));
         //然后开始写入数据 
         List<Put> putlist=new ArrayList<Put>();
         for(int i=0;i<datalist.size();i++)
