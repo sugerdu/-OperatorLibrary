@@ -164,7 +164,7 @@ public class OperatorLibraryEndpoint extends OperatorLibraryService implements C
             do {  
                 hasMore = scanner.next(results);  
                 for (Cell cell : results) {  
-                	SumResults=SumResults+Erf.erf(Double.parseDouble(new String(CellUtil.cloneValue(cell))));
+                	SumResults=SumResults+Double.parseDouble(new String(CellUtil.cloneValue(cell)));
                 }  
                 results.clear();  
             } while (hasMore);  
@@ -209,7 +209,7 @@ public class OperatorLibraryEndpoint extends OperatorLibraryService implements C
             do {  
                 hasMore = scanner.next(results);  
                 for (Cell cell : results) {  
-                	Sum=Sum+Erf.erf(Double.parseDouble(new String(CellUtil.cloneValue(cell))));
+                	Sum=Sum+Double.parseDouble(new String(CellUtil.cloneValue(cell)));
                 	i++;
                 }  
                 results.clear();  
